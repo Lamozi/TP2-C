@@ -18,6 +18,37 @@ void afficheListe (ListeTache * L) {
     printf("\n");
 }
 
+int tailleliste(ListeTache *L) {
+    int taille = 0;
+    ListeTache *P = L;
+    while (P != NULL) {
+        taille++;
+        P = P->next;
+    }
+    return taille;
+}
+
+
+// Fonction pour trier la liste par ordre croissant des dates
+void trierListe(ListeTache *L) {
+    ListeTache *P = L;
+    ListeTache *min = P;
+    ListeTache *Q = P->next;
+    for(int i = 0; i < tailleliste(L); i++) {
+
+        while (Q != NULL) {
+            if (comapredateBis(min->data->DateTache, min->next->data->DateTache)) {
+                min = Q;
+            }
+            Q = Q->next;
+        }
+        Tache *temp = P->data;
+        P->data = min->data;
+        min->data = temp;
+        P = P->next;
+    }
+}
+
 void ajouterfin(ListeTache ** L, Tache * C) {
     ListeTache * nouveau_maillon = (ListeTache *) malloc(sizeof(ListeTache));
     nouveau_maillon->data = C;
@@ -88,5 +119,82 @@ void supprimerTacheJ0(ListeTache **L){
         } else {
             P = P->next;
         }
+    }
+}
+
+// Fonction pour créer une liste de tâches vide
+
+ListeTache *creerListeVide() {
+    return NULL;
+}
+
+//fonction qui supprime les taches terminees
+void supprimerTacheTer(ListeTache **L){
+    ListeTache * P = *L;
+    ListeTache * temp = NULL;
+    while (P != NULL) {
+        if (strcmp(P->data->Statut, "Terminee") == 0) {
+            temp = P;
+            P = P->next;
+            temp->prev->next = temp->next;
+            free(temp);
+        } else {
+            P = P->next;
+}
+    }
+}
+
+//fonction qui passe les taches qui ont le nombre de jours a 0 a terminee
+void passerTacheEncoursTerminee(ListeTache **L) {
+    ListeTache *P = *L;
+    while (P != NULL) {
+        if ((P->data->NbJours == 0) && (strcmp(P->data->Statut, "En cours") == 0)){
+            strcpy(P->data->Statut, "Terminee");
+        }
+        P = P->next;
+    }
+}
+
+int compterTacheEncours(ListeTache *L) {
+    int compteur = 0;
+    ListeTache *P = L;
+    while (P != NULL) {
+        if (strcmp(P->data->Statut, "En cours") == 0) {
+            compteur++;
+        }
+        P = P->next;
+    }
+    return compteur;
+}
+
+//fonction qui renvoie la position de la tache la plus ancienne avec le statut en attente
+
+int positionTachePlusAncienne(ListeTache *L) {
+    ListeTache *P = L;
+    ListeTache *min = P;
+    int position = 0;
+    int i = 0;
+    while (P != NULL) {
+        if (comapredateBis(min->data->DateTache, P->data->DateTache) && (strcmp(P->data->Statut, "En attente") == 0)) {
+            min = P;
+            position = i;
+        }
+        P = P->next;
+        i++;
+    }
+    return position;
+}
+
+
+
+
+
+void passerTacheenAttentetoencours(ListeTache **L) {
+    ListeTache *P = *L;
+    while (P != NULL) {
+        if ((compterTacheEncours(*L)<5) ){
+            
+        }
+        P = P->next;
     }
 }

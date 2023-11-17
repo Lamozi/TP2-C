@@ -11,20 +11,32 @@ int main() {
     AfficheDate(&T);
     Tache TT;
     SaisieTache(&TT);
-    Affichetache(&TT);
+    Affichetache(&TT);*/
     Tache T1;
     SaisieTache(&T1);
     Tache T2;
-    SaisieTache(&T2);*/
+    SaisieTache(&T2);
+    Tache T3;
+    SaisieTache(&T3);
     ListeTache *LT = NULL;
-    /*
+
     ajouterfin( &LT, &T1);
     ajouterfin( &LT, &T2);
+    ajouterfin( &LT, &T3);
     afficheListe(LT);
-    //libererListe(LT);*/
+    //trierListe(LT);
+    //afficheListe(LT);
+    //supprimerTacheTer(&LT);
+    passerTacheEncoursTerminee(&LT);
+    afficheListe(LT);
+    //afficheListeCroissante(LT);
+    //libererListe(LT);
 
 
-    int choix;
+
+
+
+    /*int choix;
 
     while (1) { // Boucle infinie, l'utilisateur choisit quand quitter le programme
         printf("\n ** M E N U ** \n");
@@ -63,7 +75,7 @@ int main() {
                 printf("Choix invalide. Veuillez choisir une option valide.\n");
         }
     }
-
+*/
     return 0;
 }
 
