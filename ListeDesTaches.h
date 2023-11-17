@@ -25,6 +25,14 @@ void libererTache(Tache *tache);
 void libererListe(ListeTache *L);
 void modifierTache(ListeTache *L, char *nom);
 void supprimerTacheJ0(ListeTache **L);
+ListeTache *creerListeVide() ;
+void afficheListeCroissante(ListeTache *L);
+int tailleliste(ListeTache *L);
+void trierListe(ListeTache *L);
+void passerTacheEncoursTerminee(ListeTache **L) ;
+void supprimerTacheTer(ListeTache **L);
+int compterTacheEncours(ListeTache *L) ;
+
 
 
 

@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 typedef struct {
     int jour;
     int mois;
@@ -16,6 +17,7 @@ typedef struct {
 void  SaisiDate(Date *);
 void AfficheDate(Date *);
 int ComparerDates(Date*, Date*);
+bool comapredateBis(Date *, Date *);
 
 
 
