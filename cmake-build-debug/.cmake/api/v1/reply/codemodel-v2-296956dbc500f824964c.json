@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/gedeon/Bureau/TP2-C/cmake-build-debug",
-		"source" : "/home/gedeon/Bureau/TP2-C"
+		"build" : "/home/gedeon/Bureau/TP2-C2/cmake-build-debug",
+		"source" : "/home/gedeon/Bureau/TP2-C2"
 	},
 	"version" : 
 	{
